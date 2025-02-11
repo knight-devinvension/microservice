@@ -1,0 +1,91 @@
+version: '3.8'
+
+services:
+  # MySQL Database
+  db:
+    image: mysql:latest
+    container_name: db_service
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: lumen_db
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  # Redis for caching
+  redis:
+    image: redis:latest
+    container_name: redis_service
+    ports:
+      - "6379:6379"
+    restart: always
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      retries: 5
+      start_period: 5s
+
+  # Lumen backend
+  lumen:
+    build:
+      context: ./backend-lumen
+      dockerfile: Dockerfile
+    container_name: lumen_service
+    ports:
+      - "8000:8000"
+    environment:
+      DB_HOST: db
+      DB_DATABASE: lumen_db
+      DB_USERNAME: root
+      DB_PASSWORD: root
+      CACHE_HOST: redis
+      CACHE_PORT: 6379
+    depends_on:
+      db:
+        condition: service_healthy  # ✅ Waits for MySQL to be ready
+      redis:
+        condition: service_healthy  # ✅ Waits for Redis to be ready
+
+  # Node backend
+  node:
+    build:
+      context: ./backend-node
+      dockerfile: Dockerfile
+    container_name: node_service
+    ports:
+      - "4000:4000"
+    environment:
+      PORT: 4000
+      MYSQL_HOST: db
+      MYSQL_PORT: 3306
+      MYSQL_DATABASE: lumen_db
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  # Frontend (React/Vue)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend_service
+    ports:
+      - "3000:80"
+    depends_on:
+      - lumen
+      - node
+
+volumes:
+  db_data:

@@ -1,0 +1,663 @@
+/* General Styles */
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* NavBar */
+/* General Header Styles */
+.header {
+  display: flex;
+  padding: 10px;
+  
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease-in-out;
+  list-style-type: none;
+}
+
+.header ul {
+  margin: 0px;
+}
+
+.header:hover {
+  background-color: #f5f5f5;
+}
+
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  transition: transform 0.3s ease-in-out;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+  font-size: 28px;
+  cursor: pointer;
+  display: none;
+  color: #fff;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav ul {
+  display: flex;
+  gap: 20px;
+}
+
+.nav a {
+  color: #787cfe;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav a:hover {
+  color: #172d9d;
+}
+
+/* Dropdown Menu Styles for Mobile */
+.nav.open {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background-color: #222;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.nav.open a {
+  font-size: 20px;
+  padding: 10px;
+}
+
+.nav.open .logout-btn {
+  background: #d9534f;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.nav.open .logout-btn:hover {
+  background: #c9302c;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .nav.open {
+    display: flex;
+  }
+}
+
+/* Hover Effects and Transitions */
+.nav a,
+.logout-btn {
+  transition: all 0.3s ease;
+}
+
+.nav a:hover,
+.logout-btn:hover {
+  color: #fff;
+  background-color: #787cfe;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+/* Adjusting logo for mobile */
+@media (max-width: 768px) {
+  .logo {
+    font-size: 20px;
+  }
+}
+
+
+/* General Register Page Styling */
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Roboto', sans-serif;
+}
+
+.register-form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.register-form:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: 600;
+  color: #333;
+}
+
+.material-input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #333;
+  background-color: #fafafa;
+  transition: border-color 0.3s ease;
+}
+
+.material-input:focus {
+  border-color: #787cfe;
+  outline: none;
+}
+
+button {
+  padding: 12px 20px;
+  background-color: #787cfe;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  width: 100%;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+
+/* General Login Page Styling */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Roboto', sans-serif;
+}
+
+.login-form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.login-form:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: 600;
+  color: #333;
+}
+
+button {
+  padding: 12px 20px;
+  background-color: #787cfe;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  width: 100%;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+
+
+
+
+
+
+
+
+
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #172d9d;
+}
+
+.menu-toggle {
+  font-size: 28px;
+  cursor: pointer;
+  display: none;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  align-items: center;
+}
+
+.nav a {
+  color: #787cfe;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav a:hover {
+  background-color: #787cfe;
+  color: white;
+}
+
+.nav .logout-btn {
+  padding: 8px 16px;
+  background-color: #dc3545;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.nav .logout-btn:hover {
+  background-color: #c82333;
+}
+
+/* Mobile Menu */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    color: #172d9d;
+  }
+
+  .nav {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #ffffff;
+    width: 100%;
+    padding: 20px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav.open {
+    display: flex;
+  }
+
+  .nav a {
+    font-size: 20px;
+    padding: 12px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav .logout-btn {
+    width: 100%;
+  }
+}
+
+
+
+/* Dashboard Styling */
+.dashboard {
+  padding: 2rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Post Form Styling */
+.post-form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: 600;
+  color: #333;
+}
+
+input,
+textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #333;
+  background-color: #fafafa;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #787cfe;
+  outline: none;
+}
+
+/* button {
+  padding: 12px 20px;
+  background-color: #787cfe;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+} */
+
+
+.btn {
+  display: inline-block;
+  padding: 0.7rem 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  width: max-content;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 100px;
+  text-decoration: none;
+  /* text-transform: uppercase; */
+  position: relative;
+  margin-block: 0.5rem;
+  border: none;
+  color: white;
+  background-color: #787cfe;
+}
+
+
+/* Posts Grid */
+.grid-three {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .grid-three {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Material Cards */
+.material-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.material-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.material-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1rem;
+}
+
+.material-card-header h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.material-card-header small {
+  color: #888;
+  font-size: 0.875rem;
+}
+
+/* Card Content */
+.material-card p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Button Group */
+.btn-group {
+  display: flex;
+  margin-top: 10px;
+  gap: 1rem;
+}
+
+.edit-btn {
+  background-color: #ffc107;
+}
+
+.edit-btn:hover {
+  background-color: #e0a800;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+
+
+/*  */
+.form-wrapper {
+  padding: 1rem 2rem 2rem 2rem;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* background: #f5f5f5; */
+  background: rgb(23, 45, 157);
+  background: linear-gradient(
+    90deg,
+    rgba(23, 45, 157, 1) 0%,
+    rgba(120, 124, 254, 1) 41%,
+    rgba(72, 190, 217, 1) 100%
+  );
+}
+
+.form {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 350px;
+}
+
+h2 {
+  text-align: center;
+  color: #172d9d;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input {
+  padding: 13px;
+  border: none;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+}
+
+input:focus {
+  border-color: #007bff;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.submit-btn {
+  padding: 10px;
+  padding-inline: 2rem;
+  margin-block: 1rem;
+  border: none;
+  background: #787cfe;
+  color: white;
+  font-size: 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.submit-btn:hover {
+  background: #172d9d;
+}
+
+.heading::after {
+  content: "";
+  display: block;
+  width: 35px;
+  padding-top: 5px;
+  border-bottom: 3px solid #787cfe;
+  margin: auto;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.padding {
+  padding-inline: 2rem;
+}
+
+
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav ul {
+    display: grid;
+  }
+
+  .nav li {
+    display: none;
+  }
+
+  .nav.open li {
+    display: flex;
+  }
+}
+
+
+
+.Toastify__close-button--light {
+  opacity: 1;
+}
+.Toastify__close-button {
+  text-align: right;
+}
